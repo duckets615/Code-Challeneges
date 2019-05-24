@@ -5,8 +5,8 @@
 
 
 
-const reverseWords = s => s.split(' ').map(word => word.split('').reverse().join('')).join(' ')
+const reverseWords = s => s.split(' ').map(word => word.split('').reverse().join('')).join(' ');
 
 
 console.log(reverseWords("Let's take LeetCode Contest"))
-//                                                       "s'teL ekat edoCteeL tsetnoc"
+//                                                        s'teL ekat edoCteeL tsetnoc
