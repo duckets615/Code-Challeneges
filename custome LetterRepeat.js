@@ -1,5 +1,6 @@
 /*
-Given an array of of letters and numbers, return a new string with the letters repeating the same number of times as the number following it.
+Given an array of of letters and numbers, return a new string with the letters repeating the same number of times
+ as the number following it.
   ex. ['a', 1, 'b', 2, 'c', 3] => abbccc;
   ex. ['e', 2, 'z', 4, 't', 1] => eezzzzt;
   */

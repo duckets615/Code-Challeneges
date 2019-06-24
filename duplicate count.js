@@ -12,4 +12,3 @@ console.log(maxedOut([7600,32300,66700,22200,4554,323000,5555]));
 
 
 
-klasdjfklajsdflkajsdflk
