@@ -8,10 +8,10 @@
 // hackerSpeak('programming is fun') /*?*/
 
 //function MeanMode(arr) {
-    // let avg = arr.reduce((acc, cur) => acc + cur)/arr.length;
-    // let sorted = arr.sort((a,b) => arr.filter(a => a).length - arr.filter(b => b))[0];
-    // return avg === sorted ? 1 : 0;
-    //return arr.reduce((acc, cur) => acc + cur)/arr.length === arr.sort((a,b) => arr.filter(a => a).length - arr.filter(b => b))[0] ? 1 : 0    
+// let avg = arr.reduce((acc, cur) => acc + cur)/arr.length;
+// let sorted = arr.sort((a,b) => arr.filter(a => a).length - arr.filter(b => b))[0];
+// return avg === sorted ? 1 : 0;
+//return arr.reduce((acc, cur) => acc + cur)/arr.length === arr.sort((a,b) => arr.filter(a => a).length - arr.filter(b => b))[0] ? 1 : 0    
 //}
 
 // const MeanMode = arr => arr.reduce((acc, cur) => acc + cur)/arr.length === arr.sort((a,b) => arr.filter(a => a).length - arr.filter(b => b))[0] ? 1 : 0
@@ -37,7 +37,7 @@
 
 
 // //  Whenever a capital M is encountered, duplicate the previous character (then remove the M), and whenever a capital N is encountered remove the next character from the string (then remove the N). All other characters in the string will be lowercase letters. For example: "abcNdgM" should return "abcgg". The final string will never be empty.
-                    
+
 // function StringChanges(str) {
 //     let ar = str.split('');
 //     for (let i = 0; i < ar.length; i++) {
@@ -45,7 +45,7 @@
 //     }
 //     return ar.filter(char => char !== 'N').join('');
 // }
-                    
+
 
 
 // StringChanges("MrtyNNgMM") /*?*/ //rtyggg
@@ -64,7 +64,7 @@
 // function ArrayAddition(arr) { 
 //     let max = arr.sort((a,b) => b - a)[0];
 //     max;
-    
+
 // }
 
 // Have the function DistinctList(arr) take the array of numbers stored in arr and determine the total number of duplicate entries. For example if the input is [1, 2, 2, 2, 3] then your program should output 2 because there are two duplicates of one of the elements.
@@ -136,7 +136,7 @@
 /////   ******     ///////
 
 // const AdditivePersistence = (num, count = 0) => num < 10 ? count : AdditivePersistence(num.toString().split('').map(el => +el).reduce((acc,cur) => acc + cur), count += 1)
-  
+
 
 //   AdditivePersistence(4) /*?*/ // 0
 //   AdditivePersistence(19) /*?*/// 2
@@ -290,15 +290,131 @@
 // PrimeMover(90) /*?*/ // 463
 // PrimeMover(16) /*?*/ //53
 
-function DashInsertII(num) { 
-    let ar = num.toString().split('');
-    ar 
-    for (let i = 0; ar.length; i++) {
-        if (+ar[i] % 2 === 0 && +ar[i+1] % 2 === 0) ar.splice(i,0,'*');
-        if (+ar[i] % 2 !== 0 && +ar[i+1] % 2 !== 0) ar.splice(i,0,'-');
+// function DashInsertII(num) {     
+//     let ar = num.toString().split('');
+//     let Length = ar.length * 2, end = ar[ar.length - 1];
+//     for (let i = 1; i < Length; i++) {
+//          if (+ar[i] === 0) continue;
+//          if (+ar[i] % 2 === 0 && +ar[i-1] % 2 === 0 && +ar[i-1] !== 0) ar.splice(i,0,'*'); 
+//          if (+ar[i] % 2 !== 0 && +ar[i-1] % 2 !== 0 && ar[i-1] !== '-') ar.splice(i,0,'-');
+//     };
+//     return ar[ar.length-1] === end ? ar.join('') : ar.slice(0, ar.lastIndexOf(end) + 1).join('');
+// }  
+
+// DashInsertII(99946) /*?*/ // 9-9-94*6
+// DashInsertII(56647304) /*?*/ // 56*6*47-304
+// DashInsertII(77993) /*?*/ // 7-7-9-9-3
+// DashInsertII( 10120) /*?*/ // 10120
+// DashInsertII(60497642) /*?*/ // 6049-76*4*2
+// DashInsertII( 667488958374553) /*?*/ // 6*674*8*89-583-745-5-3
+// DashInsertII(39904467) /*?*/ //3-9-904*4*67.
+// DashInsertII(60497642) /*?*/ //6049-76*4*2.
+
+// Have the function OffLineMinimum(strArr) take the strArr parameter being passed which will be an array of integers ranging from 1...n and the letter "E" and return the correct subset based on the following rules. The input will be in the following format: ["I","I","E","I",...,"E",...,"I"] where the I's stand for integers and the E means take out the smallest integer currently in the whole set. When finished, your program should return that new set with integers separated by commas. For example: if strArr is ["5","4","6","E","1","7","E","E","3","2"] then your program should return 4,1,5.
+
+// check up to E
+// remove lowest
+// push lowest to array to be returned
+
+// function OffLineMinimum(strArr, small=[]) {    
+//     let idx = strArr.indexOf('E');
+//     if (idx === -1) {
+//         small.push(strArr.slice(0))
+//         small
+//         return small.join(',')
+//     } else {
+//         small.push(Math.min(...strArr.slice(0,idx)))
+//         let x = Math.min(...strArr.slice(0,idx)) /*?*/
+//         return OffLineMinimum(strArr.slice(idx+1), small)
+//     }
+// }
+
+// function OffLineMinimum(strArr, small=[]) {}
+
+// OffLineMinimum(["1","2","E","E","3"]) /*?*/ //1,2
+// OffLineMinimum(["1","2","3"]) /*?*/ //1,2
+// OffLineMinimum(["4","E","1","E","2","E","3","E"]) /*?*/ // 4,1,2,3
+
+// function StringScramble(str1,str2) { 
+//     for (let i = 0; i < str2.length; i++) {
+//         if (str2[i].match(/[a-z]/) && str1.indexOf(str2[i]) === -1) {
+//             return false;
+//         } else {
+//         str2.split('').splice(i,1).join('');
+
+//         }
+//     }
+//     return true;
+// }
+// StringScramble("cdore", "coder") /*?*/ // true
+// StringScramble("h3llko", "hello") /*?*/ // false
+// StringScramble("win33er", "winner") /*?*/ // false 
+
+
+
+// Have the function BasicRomanNumerals(str) read str which will be a string of Roman numerals. The numerals being used are: I for 1, V for 5, X for 10, L for 50, C for 100, D for 500 and M for 1000. In Roman numerals, to create a number like 11 you simply add a 1 after the 10, so you get XI. But to create a number like 19, you use the subtraction notation which is to add an I before an X or V (or add an X before an L or C). So 19 in Roman numerals is XIX.
+
+// The goal of your program is to return the decimal equivalent of the Roman numeral given. 
+
+// function BasicRomanNumerals(str) {
+//     let result = [];
+//     let ar = str.split('');
+//     let roman = {"I": 1, "V": 5,"X": 10,"L": 50,"C": 100, "D": 500, "M": 1000}
+
+//     for (let i = 0; i < ar.length; i++) {
+//         if (ar[i] + ar[i+1] === 'IV') {
+//             result.push(4)
+//             i = i + 1;
+//         } else if (ar[i] + ar[i+1] === 'IX') {           
+//             result.push(9);
+//             i = i + 1;              
+//         } else if (ar[i] + ar[i+1] === 'XL') {           
+//             result.push(40);
+//             i = i + 1;              
+//         } else if (ar[i] + ar[i+1] === 'XC') {           
+//             result.push(90);
+//             i = i + 1;              
+//         }
+//         else {
+//             result.push(roman[ar[i]]);
+//         }
+//     }
+//     return result.reduce((acc,cur) => acc + cur);
+// }
+
+// BasicRomanNumerals("XXIV") /*?*/ // 24 
+// BasicRomanNumerals("IV") /*?*/ // 4
+// BasicRomanNumerals("XLVI") /*?*/ // 46
+
+
+//  two sum with hash;
+
+//  return an array with all the integer pairs that add up to first element in the array, exlucde the first element from the returned array
+
+function twoSum(ar) {
+    let result = [];
+    for (let i = 1; i < ar.length; i++) {
+        for (let j = i + 1; j < ar.length; j++) {
+            if (ar[i] + ar[j] === ar[0]) result.push([ar[i], ar[j]])
+        }
     }
-    return ar
+    return result;
 }
 
-DashInsertII(99946) /*?*/ // 9-9-94*6
-DashInsertII(56647304) /*?*/ // 56*6*47-304
+// function twoSum2(ar) {
+//     let results = [];
+//     let hash = []
+//     for (let i = 1; i < ar.length; i++) {
+//         if ()
+
+//     }
+// }
+// twoSum([10, 1, 2, 3, 4, 5, 6, 7, 8]) /*?*/
+// twoSum([10, 1, 2, 3, 4, 5, 6, 7,8]) /*?.*/
+// twoSum2([10, 1, 2, 3, 4, 5, 6, 7, 8]) /*?*/
+// twoSum2([10, 1, 2, 3, 4, 5, 6, 7, 8]) /*?.*/
+
+function test(one, two , three) {
+return [one,two,three]
+}
+test(1) /*?*/
