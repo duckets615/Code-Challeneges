@@ -151,20 +151,21 @@
 
 // Have the function NumberStream(str) take the str parameter being passed which will contain the numbers 2 through 9, and determine if there is a consecutive stream of digits of at least N length where N is the actual digit value. If so, return the string true, otherwise return the string false. For example: if str is "6539923335" then your program should return the string true because there is a consecutive stream of 3's of length 3. The input string will always contain at least one digit.
 
-// function NumberStream(str) { 
-//     for (let i = 0; i < str.length; i++) { 
-//         if (str[i] === str[i-1]) continue;
-//         let start = i;
-//         let end = i + +str[i];
-//         let target = str[i] ** 2;
-//         let seq = str.slice(start, end).split('').map(num => +num).reduce((acc,cur) => acc + cur);
-//         if (seq === target) return true;
-//         seq = [];
-//     }
-//     return false;
-// }
-// NumberStream("5556293383563665")/*?*/ //false
-// NumberStream("5788888888882339999") /*?*/ // true
+function NumberStream(str) { 
+    for (let i = 0; i < str.length; i++) { 
+        if (str[i] === str[i-1]) continue;
+        let start = i;
+        let end = i + +str[i]; /*?*/
+        let target = str[i] ** 2;
+        let seq = str.slice(start, end).split('').map(num => +num).reduce((acc,cur) => acc + cur);
+        if (seq === target) return true;
+        seq = [];
+    }
+    return false;
+}
+
+NumberStream("5556293383563665")/*?*/ //false
+NumberStream("5788888888882339999") /*?*/ // true
 
 
 
@@ -391,30 +392,76 @@
 
 //  return an array with all the integer pairs that add up to first element in the array, exlucde the first element from the returned array
 
-function twoSum(ar) {
-    let result = [];
+// function twoSum(ar) {
+//     let result = [];
+//     for (let i = 1; i < ar.length; i++) {
+//         for (let j = i + 1; j < ar.length; j++) {
+//             if (ar[i] + ar[j] === ar[0]) result.push([ar[i], ar[j]])
+//         }
+//     }
+//     return result;
+// }
+
+
+function twoSum2(arr) {
+    let results = [];
+    let hash = {}
     for (let i = 1; i < ar.length; i++) {
-        for (let j = i + 1; j < ar.length; j++) {
-            if (ar[i] + ar[j] === ar[0]) result.push([ar[i], ar[j]])
+        let dif = ar[0] - ar[i];
+        if (hash[dif] !== undefined) {
+            results.push([ar[i], dif])
+        } else {
+            hash[dif] = dif;
         }
     }
-    return result;
+    return results
 }
 
-// function twoSum2(ar) {
-//     let results = [];
-//     let hash = []
-//     for (let i = 1; i < ar.length; i++) {
-//         if ()
-
-//     }
-// }
-// twoSum([10, 1, 2, 3, 4, 5, 6, 7, 8]) /*?*/
-// twoSum([10, 1, 2, 3, 4, 5, 6, 7,8]) /*?.*/
+twoSum2([7, 6, 4, 1, 7, -2, 3, 12]) /*?*/ // 6,1 4,3
 // twoSum2([10, 1, 2, 3, 4, 5, 6, 7, 8]) /*?*/
 // twoSum2([10, 1, 2, 3, 4, 5, 6, 7, 8]) /*?.*/
+// function twoSum(arr, S) {
 
-function test(one, two , three) {
-return [one,two,three]
-}
-test(1) /*?*/
+//     var sums = [];
+//     var hashTable = {}
+
+//     // check each element in array
+//     for (var i = 0; i < arr.length; i++) {       
+//       // calculate S - current element
+//       var sumMinusElement = S - arr[i];      
+//       // check if this number exists in hash table
+//       // if so then we found a pair of numbers that sum to S
+//       if (hashTable[sumMinusElement.toString()] !== undefined) { 
+//         sums.push([arr[i], sumMinusElement]);
+//       }      
+//       // add the current number to the hash table
+//       hashTable[arr[i].toString()] = arr[i];      
+//     }      
+//     // return all pairs of integers that sum to S
+//     return sums;      
+//   }
+
+// twoSum([10, 1, 2, 3, 4, 5, 6, 7, 8],10) /*?*/
+// twoSum([10, 1, 2, 3, 4, 5, 6, 7,8]) /*?.*/
+
+// Have the function WaveSorting(arr) take the array of positive integers stored in arr and return the string true if the numbers can be arranged in a wave pattern: a1 > a2 < a3 > a4 < a5 > ..., otherwise return the string false. For example, if arr is: [0, 1, 2, 4, 1, 4], then a possible wave ordering of the numbers is: [2, 0, 4, 1, 4, 1]. So for this input your program should return the string true. The input array will always contain at least 2 elements. More examples are given below as sample test cases.
+
+// function WaveSorting(ar) {
+//     let Length = ar.length;
+//     let end = [];
+//     let sorted = ar.sort((a,b) => a - b)
+//     sorted
+//     while (end.length < Length) { 
+//         sorted
+//         sorted.length /*?*/
+//         end.push(sorted[sorted.length - 1]) /*?*/      
+//         end.push(sorted[0]) /*?*/      
+//         sorted.shift();/*?*/
+//         sorted.pop(); /*?*/
+//         sorted
+//     } 
+//     return end
+// }
+
+//WaveSorting([0, 1, 2, 4, 1, 1, 1]) /*?*/ // false
+// WaveSorting([0, 4, 22, 4, 14, 4, 2]) /*?*/ // true
