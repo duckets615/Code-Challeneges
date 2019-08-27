@@ -5,9 +5,8 @@
 // "eDaBiT" ➞ [1, 3, 5]
 // "eQuINoX" ➞ [1, 3, 4, 6]
 
-function indexOfCaps(str) {
-        //code here
-    }
+
+    const indexOfCaps = str => str.split('').map((el,i) => el === el.toUpperCase() ? el = i : el = el).filter(num => typeof num === 'number')
     
     console.log(indexOfCaps("eDaBiT")) // [1, 3, 5]    
     console.log(indexOfCaps("eQuINoX")) // [1, 3, 4, 6]    
@@ -18,20 +17,18 @@ function indexOfCaps(str) {
     console.log(indexOfCaps("1854036297"))// [] 
     console.log(indexOfCaps("Fo?.arg~{86tUx=|OqZ!"))// [0, 12, 16, 18]
     
-    const indexOfCaps = str => str.split('').map((ele,i) => ele = ele.toUpperCase() === ele  && ele.match(/[a-z]/i) ?
-    i : ele).filter(ele => typeof ele === 'number')
 
     
-    function indexOfCaps(str) {
-        let idx = [];
-        let ar = str.split('');
-        for (let i = 0; i < ar.length; i++) {
-            if (ar[i].toUpperCase() === ar[i] && ar[i].match(/[a-z]/i)) {
-            idx.push(i)
-            }
-        }
-        return idx;
-    }
+    // function indexOfCaps(str) {
+    //     let idx = [];
+    //     let ar = str.split('');
+    //     for (let i = 0; i < ar.length; i++) {
+    //         if (ar[i].toUpperCase() === ar[i] && ar[i].match(/[a-z]/i)) {
+    //         idx.push(i)
+    //         }
+    //     }
+    //     return idx;
+    // }
 
 
     

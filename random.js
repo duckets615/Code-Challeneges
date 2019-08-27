@@ -151,21 +151,21 @@
 
 // Have the function NumberStream(str) take the str parameter being passed which will contain the numbers 2 through 9, and determine if there is a consecutive stream of digits of at least N length where N is the actual digit value. If so, return the string true, otherwise return the string false. For example: if str is "6539923335" then your program should return the string true because there is a consecutive stream of 3's of length 3. The input string will always contain at least one digit.
 
-function NumberStream(str) { 
-    for (let i = 0; i < str.length; i++) { 
-        if (str[i] === str[i-1]) continue;
-        let start = i;
-        let end = i + +str[i]; /*?*/
-        let target = str[i] ** 2;
-        let seq = str.slice(start, end).split('').map(num => +num).reduce((acc,cur) => acc + cur);
-        if (seq === target) return true;
-        seq = [];
-    }
-    return false;
-}
+// function NumberStream(str) {
+//     for (let i = 0; i < str.length; i++) {
+//         if (str[i] === str[i - 1]) continue;
+//         let start = i;
+//         let end = i + +str[i]; /*?*/
+//         let target = str[i] ** 2;
+//         let seq = str.slice(start, end).split('').map(num => +num).reduce((acc, cur) => acc + cur);
+//         if (seq === target) return true;
+//         seq = [];
+//     }
+//     return false;
+// }
 
-NumberStream("5556293383563665")/*?*/ //false
-NumberStream("5788888888882339999") /*?*/ // true
+// NumberStream("5556293383563665") /*?*/ //false
+// NumberStream("5788888888882339999") /*?*/ // true
 
 
 
@@ -353,6 +353,8 @@ NumberStream("5788888888882339999") /*?*/ // true
 
 
 
+
+
 // Have the function BasicRomanNumerals(str) read str which will be a string of Roman numerals. The numerals being used are: I for 1, V for 5, X for 10, L for 50, C for 100, D for 500 and M for 1000. In Roman numerals, to create a number like 11 you simply add a 1 after the 10, so you get XI. But to create a number like 19, you use the subtraction notation which is to add an I before an X or V (or add an X before an L or C). So 19 in Roman numerals is XIX.
 
 // The goal of your program is to return the decimal equivalent of the Roman numeral given. 
@@ -403,21 +405,29 @@ NumberStream("5788888888882339999") /*?*/ // true
 // }
 
 
-function twoSum2(arr) {
-    let results = [];
-    let hash = {}
-    for (let i = 1; i < ar.length; i++) {
-        let dif = ar[0] - ar[i];
-        if (hash[dif] !== undefined) {
-            results.push([ar[i], dif])
-        } else {
-            hash[dif] = dif;
-        }
-    }
-    return results
-}
+//              TWO SUM  
 
-twoSum2([7, 6, 4, 1, 7, -2, 3, 12]) /*?*/ // 6,1 4,3
+// return all digit pairs that add up to a target #, which will be the largest # in an array. 
+//Exclude the target from the returned pairs
+// function twoSum2(ar) {
+//     let target = Math.max(...ar);
+//     let array = ar.sort((a,b) => b - a).slice(1);
+//     let pairs = [], hash = {};
+//     for (let i = 0; i < array.length; i++) {
+//         let cur = array[i];
+//         let dif = target - cur;
+//         if (hash[dif] === undefined) {
+//             hash[dif] = dif
+//         } else {
+//             pairs.push([cur, dif])
+//         }
+//     }
+//     return pairs;
+// }
+
+
+//twoSum2([17, 4, 5, 6, 10, 11, 4, -3, -5, 3, 15, 2, 7]) /*?*/ // 6,11 10,7 15,2
+//twoSum2([7, 6, 4, 1, 7, -2, 3, 12]) /*?*/ // 6,1 4,3
 // twoSum2([10, 1, 2, 3, 4, 5, 6, 7, 8]) /*?*/
 // twoSum2([10, 1, 2, 3, 4, 5, 6, 7, 8]) /*?.*/
 // function twoSum(arr, S) {
@@ -465,3 +475,70 @@ twoSum2([7, 6, 4, 1, 7, -2, 3, 12]) /*?*/ // 6,1 4,3
 
 //WaveSorting([0, 1, 2, 4, 1, 1, 1]) /*?*/ // false
 // WaveSorting([0, 4, 22, 4, 14, 4, 2]) /*?*/ // true
+
+
+// Have the function LongestIncreasingSequence(arr) take the array of positive integers stored in arr and return the length of the longest increasing subsequence (LIS). A LIS is a subset of the original list where the numbers are in sorted order, from lowest to highest, and are in increasing order. The sequence does not need to be contiguous or unique, and there can be several different subsequences. For example: if arr is [4, 3, 5, 1, 6] then a possible LIS is [3, 5, 6], and another is [1, 6]. For this input, your program should return 3 because that is the length of the longest increasing subsequence.
+
+// function LongestIncreasingSequence(ar) {
+//     let count = 0;
+//     let max = 0;
+//     for (let i = 0; i < ar.length; i++) {
+//         if (count > max) max = count;
+//         count = 0;
+//         let current = ar[i];
+//         for (let j = i+1; j < ar.length; j++) {
+//             let next = ar[j];
+//             if (current < next) count++;
+//         }
+//     }
+//     return max;
+// }
+
+// //LongestIncreasingSequence([9, 9, 4, 2]) /*?*/  // 1
+// LongestIncreasingSequence([10, 22, 9, 33, 21, 50, 41, 60, 22, 68, 90])/*?*/ // 7
+//LongestIncreasingSequence([1, 2, 3, 7, 4, 5])/*?*/  // 5
+//LongestIncreasingSequence([4, 3, 5, 1, 6 ])/*?*/  // 3
+
+
+// Create a function that returns the frequency distribution of an array. This function should return an object, where the keys are the unique elements and the values are the frequency in which those elements occur.
+
+// function getFrequencies(ar, obj = {}) {
+// 	ar.map(el => obj[el] === undefined ? obj[el] = 1 : obj[el]++)
+// 	return obj;
+// }
+
+// getFrequencies(["A", "B", "A", "A", "A"]) /*?*/  // ➞ { A: 4, B: 1 } 
+// getFrequencies([1, 2, 3, 3, 2]) /*?*/ // ➞ { "1": 1, "2": 2, "3": 2 } 
+// getFrequencies([true, false, true, false, false]) /*?*/ // ➞ { true: 2, false: 3 }
+// getFrequencies([]) /*?*/ // ➞ {}
+
+// // Create a function that takes in a sentence and returns the average length of each word in that sentence. Return a float value that is rounded to two decimal places.
+
+// function averageWordLength(str) {
+// 	let num = (str.split(' ').map(word => word.match(/[a-z]/gi).length).reduce((acc,cur) => acc + cur) / str.split(' ').length).toFixed(2)
+// 	return +num[3] === 0 ?  +num[2] === 0 ? +num[0] : +num.slice(0,3) : +num      		
+//  }
+
+
+
+// averageWordLength("A B C.") /*?*/ //➞ 1
+// averageWordLength("What a gorgeous day.") /*?*/ // ➞ 4
+// averageWordLength("Dude, this is so awesome!") /*?*/ // ➞ 3.8
+// averageWordLength('A B C.') /*?*/ // 1
+// averageWordLength('What a gorgeous day.') /*?*/ // 4
+// averageWordLength('Dude, this is so awesome!') /*?*/ // 3.8
+// averageWordLength('Working on my tan right now.') /*?*/ // 3.67
+// averageWordLength('Having a blast partying in Las Vegas.') /*?*/ // 4.29
+// averageWordLength('Have you ever wondered what Saturn looks like?') /*?*/ // 4.75
+// averageWordLength('I just planted a young oak tree, wonder how tall it will grow in a few years?') /*?*/ // 3.47
+
+
+
+// Create a function that takes two arguments: an array and a number. In the array (the first argument), if an element occurs more than N times (the second argument), remove the extra occurrence(s) and return the result.
+
+// loop thru
+// count occurences //  filter?
+// if > arg[2] remove;
+
+
+

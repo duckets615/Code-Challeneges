@@ -29,19 +29,19 @@ function kap(n) {
 
 }
 
-// function kap(num) { 
-//     var count=0;
-//     while(num!=6174){
-//         var desc=parseInt(num.toString().split("").sort(function(a,b){return b-a}).join(""), 10);
-//         var asc=parseInt(num.toString().split("").sort(function(a,b){return a-b}).join(""), 10);
-//         if(desc<1000) desc*=10;
-//         num = desc-asc;
-//         count++;
-//     }
+function kap(num) { 
+    var count=0;
+    while(num!=6174){
+        var desc=parseInt(num.toString().split("").sort(function(a,b){return b-a}).join(""), 10);
+        var asc=parseInt(num.toString().split("").sort(function(a,b){return a-b}).join(""), 10);
+        if(desc<1000) desc*=10;
+        num = desc-asc;
+        count++;
+    }
 
-//   // code goes here  
-//   return count; 
+  // code goes here  
+  return count; 
          
-// }
+}
    
-console.log(kap(3524));
+kap(3524)

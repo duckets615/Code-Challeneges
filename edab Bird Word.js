@@ -18,33 +18,35 @@
 //     })       
 // }
 
-//Jose Montero Jr [8:13 PM]
-function birdCode(arr) {
- return arr.map(el => {
-  // el = el.includes(' ') ? el.toUpperCase().split(' ') : el.toUpperCase().slice(0,4)
-   el = el.includes(' ') ? el.toUpperCase().split(' ') : el.toUpperCase().slice(0,4)
-     if (el.length === 2) {
-     return el[0].slice(0, 2) + el[1].slice(0, 2);
-   } else if (el.length === 3) {
-     return el[0].slice(0, 2) + el[2].slice(0, 2);
-   } else if (el.length === 4) {
-     return (
-       el[0].slice(0, 1) +
-       el[1].slice(0, 1) +
-       el[2].slice(0, 1) +
-       el[3].slice(0, 1)
-     );
-   }
- });
-}
+// //Jose Montero Jr [8:13 PM]
+// function birdCode(arr) {
+//  return arr.map(el => {
+//   // el = el.includes(' ') ? el.toUpperCase().split(' ') : el.toUpperCase().slice(0,4)
+//    el = el.includes(' ') ? el.toUpperCase().split(' ') : el.toUpperCase().slice(0,4)
+//      if (el.length === 2) {
+//      return el[0].slice(0, 2) + el[1].slice(0, 2);
+//    } else if (el.length === 3) {
+//      return el[0].slice(0, 2) + el[2].slice(0, 2);
+//    } else if (el.length === 4) {
+//      return (
+//        el[0].slice(0, 1) +
+//        el[1].slice(0, 1) +
+//        el[2].slice(0, 1) +
+//        el[3].slice(0, 1)
+//      );
+//    }
+//  });
+// }
 
 
-console.log(birdCode(["Common Tern", "Black-Capped Chickadee"])) // ["COTE","BCCH"])
-console.log(birdCode(["American Redstart", "Northern Cardinal", "Barred Owl", "Starling", "Pigeon"]))//, ["AMRE","NOCA","BAOW","STAR","PIGE"])
-console.log(birdCode(["Great Crested Flycatcher", "Bobolink", "Red-Tailed Hawk", "Blue Jay"]))//, ["GCFL","BOBO","RTHA","BLJA"])
-console.log(birdCode(["Black-Crowned Night Heron", "Northern Mockingbird", "Dark-Eyed Junco"]))//, ["BCNH","NOMO",DEJU"])
-console.log(birdCode(["Scarlet Tanager", "Great Blue Heron", "American Black Duck", "Ovenbird"]))//, ["SCTA","GBHE","ABDU","OVEN"])
-console.log(birdCode(["Fox Sparrow", "Veery", "American Coot", "Northern Rough-Winged Swallow"]))//, ["FOSP","VEER","AMCO","NRWS"])
+// console.log(birdCode(["Common Tern", "Black-Capped Chickadee"])) // ["COTE","BCCH"])
+// console.log(birdCode(["American Redstart", "Northern Cardinal", "Barred Owl", "Starling", "Pigeon"]))//, ["AMRE","NOCA","BAOW","STAR","PIGE"])
+// console.log(birdCode(["Great Crested Flycatcher", "Bobolink", "Red-Tailed Hawk", "Blue Jay"]))//, ["GCFL","BOBO","RTHA","BLJA"])
+// console.log(birdCode(["Black-Crowned Night Heron", "Northern Mockingbird", "Dark-Eyed Junco"]))//, ["BCNH","NOMO",DEJU"])
+// console.log(birdCode(["Scarlet Tanager", "Great Blue Heron", "American Black Duck", "Ovenbird"]))//, ["SCTA","GBHE","ABDU","OVEN"])
+// console.log(birdCode(["Fox Sparrow", "Veery", "American Coot", "Northern Rough-Winged Swallow"]))//, ["FOSP","VEER","AMCO","NRWS"])
+
+
 
 
 
@@ -76,4 +78,32 @@ console.log(birdCode(["Fox Sparrow", "Veery", "American Coot", "Northern Rough-W
     
   
     
+// const reverse = (str, i = str.length, newstr = '') => i === 0 ? newstr : reverse(str, i -= 1, newstr += str[i])
 
+// reverse('hello') /*?*/
+
+// function gcd(num1,num2) {
+//     let low = num1 > num2 ? num2 : num1;
+//     let high = num1 > num2 ? num1 : num2;
+//     if (high % low === 0) return low;
+//     for (let i = Math.ceil(low / 2); i > 0 ; i--) {
+//         if (high % i === 0 && low % i === 0) return i
+//     }
+// }
+
+// function gcd(n1, n2) {
+// 	if (n2 == 0) return n1 
+//     return gcd(n2, n1 % n2);
+// }
+
+// gcd(32, 8) /*?*/ // 
+// gcd(8, 12) /*?*/ // 
+// gcd(17, 13) /*?*/ // 
+// gcd(32, 8) /*?*/ // 8
+// gcd(8, 12) /*?*/ // 4
+// gcd(17, 13) /*?*/ // 1
+// gcd(14, 7) /*?*/ // 7
+// gcd(32, 16) /*?*/ // 16
+// gcd(17, 100) /*?*/ // 1
+// gcd(55, 20) /*?*/ // 5
+// gcd(55, 22) /*?*/ // 11

@@ -1,6 +1,6 @@
 
 
-const digitSort = (arr, num) => arr.sort((a,b) => String(b).length - String(a).length || a - b)//.sort((a,b) => a + b)//.reverse()
+const digitSort = (arr, num) => arr.sort((a,b) => String(b).length - String(a).length || a - b)
 
 //   Write a function that sorts an array of integers by their digit length in descending order, then settles ties by sorting numbers with the same digit length in ascending order.
   
